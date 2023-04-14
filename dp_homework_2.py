@@ -79,14 +79,13 @@ Menu = '''
 4. Программа, которая определит кандидата в возрастную группу соревнований.
 5. Программа, которая выводит на экран числа от 1 до n.
 6. Программа, которая простейший калькулятор.
-7. Test
 '''
 print(Menu)
 
 def start():
  while True:
     number = input('Выберите задачу: ')
-    if number.isdigit() and 0 < int(number) <= 7:
+    if number.isdigit() and 0 < int(number) <= 6:
        break
     else:
        print('Введите корректный номер задачи: ')
@@ -129,10 +128,9 @@ def task3():
   left_value = not(X or Y or Z)
   right_value = not(X) and not(Y) and not(Z)
   if left_value == right_value:
-    print("Выражение верно")
+    print("¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z  -> Выражение верно")
   else:
-    print("Выражение неверно")
-
+    print("¬(X ⋁ Y ⋁ Z) = ¬X ⋀ ¬Y ⋀ ¬Z  ->  Выражение неверно")
 
 #Задача 4.
 def task4():
@@ -162,7 +160,7 @@ def task4():
       print(f'Средняя категория')
      if 81 < weigth:
       print(f'Тяжелая категория')
-  if  14 < age:
+  if  14 > age:
     print(f'До соревнований не допущен по возрасту')
   if weigth < 44:   
     print(f'До соревнований не допущен по весу')
@@ -189,7 +187,6 @@ def task6():
  2.Вычитание
  3.Умножение
  4.Деление
- 5.Выход
  '''
   print(menushka)
   x = input('Выберите действие: ')
@@ -249,4 +246,5 @@ def task6():
   if value == "":
    break
   # continue
-
+ 
+start()
