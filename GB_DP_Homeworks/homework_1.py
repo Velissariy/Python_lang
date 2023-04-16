@@ -28,7 +28,6 @@
 # 3 2 4 -> yes
 # 3 2 1 -> no
 
-import math
 
 Menu= '''
 Выберите номер задачи:
@@ -58,33 +57,35 @@ def start():
 
 #Задача 2.
 def task1():
-   a = input('Введите трехзначное число: ')
-   if len(a) != 3:
+   number = input('Введите трехзначное число: ')
+   if len(number) != 3:
     print("Введено не трехзначное число")
    else:
-    sum1 = int(a[0])+int(a[1])+int(a[2])
+    sum1 = int(number[0])+int(number[1])+int(number[2])
     print(sum1)
 
 #Задача 4.
 def task2():  
   res = int(input("Введите общее количество журавликов:"))
-  kef = math.ceil(res/6)
-  p = 1*kef
-  k = 4*kef
-  s = 1*kef
-  print(f'{res}', f'->: {p}  {k}  {s}')
+  if  res%6 ==0:
+   petya = serj = res//6
+   katya = res//6*4
+   print(f'Общее количество {res}', f': Петя -> {petya},Катя ->  {katya},Сережа ->  {serj}')
+  else:
+     print('Введено некорректное число журавликов') 
+  
 
 #Задача 6.
 def task3():
-  a = input('Введите шестизначное число: ')
-  if len(a) != 6:
+  number = input('Введите шестизначное число: ')
+  if len(number) != 6:
     print("Введено не шестизначное число")
-  else:
-    sum1 = int(a[0])+int(a[1])+int(a[2])
-    sum2 = int(a[3])+int(a[4])+int(a[5])
-    if sum1 == sum2:
+  else:  
+   left = number[:3]
+   rigth = number[3:]
+   if left == rigth:
         print('yes')
-    else:
+   else:
         print('no')
 
 #Задача 8.
@@ -99,3 +100,4 @@ def task4():
     print("нельзя отломать", k, "долек одним разломом")
 
 start()
+
