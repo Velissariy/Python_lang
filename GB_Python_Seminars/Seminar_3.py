@@ -81,3 +81,4 @@ def task4():
        uniq.add(value)
  print(uniq)
   
+start()
