@@ -20,6 +20,7 @@
 # затем вводим новую дату и программа должна выдать нам какой день недели будет в эту дату.
 
 import random
+import datetime
 
 Menu = '''
 Выберите номер задачи:
@@ -61,13 +62,6 @@ def task2():
  num = num1 = int(input("Введите число: "))
 
  x = input('Введите в какую систему исчесления перевести число(2/8/16 или другую): ')
-#  match x:
-#               case 1:
-#                break
-#               case 2:
-#                break
-#               case 3:
-#                break
                  
  value_code = ""
  divider = int(x)
@@ -77,41 +71,50 @@ def task2():
  print(f'Число {num1} в {divider}-ой системе: {value_code}')
 
 def task3():
-    pass
-
-
+    
+    cell = input("Введите координаты клетки: ")
+    column, row = cell[0].upper(), int(cell[1])
+    answer=[]
+    if column in ['A', 'C', 'E', 'G']:
+        if row % 2 == 0:
+             answer.append("черный")
+        else:
+            answer.append("белый")
+    else:
+        if row % 2 == 0:
+            answer.append("белый")
+        else:
+            answer.append("черный")
+    print("Цвет клетки:", (answer))
+           
 def task4():
- n = int(input("Введите число в последовательности Фибоначчи и Негафибоначчи: "))
- # Первые два числа в последовательности Фибоначчи равны 0 и 1
- a, b = 0, 1
- # Выводим первые n чисел последовательности Фибоначчи
- for i in range(n):
-    print(a, end=" ")
-    a, b = b, a+b
+    n = int(input("Введите число в последовательности Фибоначчи и Негафибоначчи: "))
 
-# [-21, 13, -8, 5, -3, 2, -1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21]
-# В математике, числа негафибоначчи — отрицательно индексированные элементы последовательности чисел Фибоначчи.
-# Числа негафибоначчи определяются индуктивно следующим рекуррентным соотношением:
-# F−1 = 1,
-# F−2 = -1,
-# Fn = F(n+2)−F(n+1).
-# Они также могут быть определены по формуле F−n = (−1)n+1Fn.
-# Первые 10 чисел последовательности негаФибоначчи:
-# n	F(n)
-# −1	1
-# −2	−1
-# −3	2
-# −4	−3
-# −5	5
-# −6	−8
-# −7	13
-# −8	−21
-# −9	34
-# −10−55
- 
+    fib = [0, 1]
+    negafib = [0, 1]
 
+    for i in range(2, n):
+        fib.append(fib[i-1] + fib[i-2])
+        negafib.append(negafib[i-1] - negafib[i-2])
 
-def task5():
-   pass
+    print("Последовательность Фибоначчи:", fib)
+    print("Последовательность Негафибоначчи:", negafib)
+
+def task5():  
+
+ today = datetime.datetime.today()
+ weekday = today.weekday()
+
+ days = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]
+ today_str = days[weekday]
+
+ new_date_str = input("Введите новую дату в формате ГГГГ-ММ-ДД: ")
+
+ new_date = datetime.datetime.strptime(new_date_str, "%Y-%m-%d")
+
+ new_weekday = new_date.weekday()
+ new_weekday_str = days[new_weekday]
+
+ print(f"Сегодня {today_str}, а в дату {new_date_str} будет {new_weekday_str}.")
 
 start()
