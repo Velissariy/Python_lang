@@ -45,8 +45,8 @@ def start():
 
 
 def count_vowels_consonants(poem):
- vowels = "aeiouyAEIOUY"
- consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+ vowels = ["aeiouyAEIOUY", "ауоыиэяюёеАУОЫИЭЯЮЁЕ"]
+ consonants = ["bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ",""]
  count_v = 0
  count_c = 0
  for letter in poem:
